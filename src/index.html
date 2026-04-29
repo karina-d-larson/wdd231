@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NPS Park Demo Site - WDD231</title>
   <link rel="stylesheet" href="/css/style.css">
+  <script type="module" src="/js/main.js" defer></script>
 </head>
+
 <body>
-  
+
   <div id="content">
     <header>
       <h1>US National Parks</h1>
@@ -16,31 +19,56 @@
 
     <main>
       <section id="hero">
-        <img src="/images/us-map.png" alt="Map of the US">
+        <img id="hero-image" src="/images/us-map.png" alt="Map of the US">
       </section>
       <section id="parkInfo">
         <h2 id="parkName">Park Name</h2>
         <div>
           <p id="parkType">Park Type</p>
-          <p id="parkState">Park Name</p>
+          <p id="parkStates">Park State</p>
         </div>
       </section>
       <section id="parkMenu">
         <ul>
           <li>
-            <h3></h3>
+            <h3>Info</h3>
             <svg>
-              <use href="sprite.svg#info"></use>
+              <use href="/images/sprite.svg#info"></use>
             </svg>
           </li>
-        </ul>Info
+          <li>
+            <h3>Alerts</h3>
+            <svg>
+              <use href="/images/sprite.svg#safety-caution-alerts"></use>
+            </svg>
+          </li>
+          <li>
+            <h3>Maps</h3>
+            <svg>
+              <use href="/images/sprite.svg#location_on"></use>
+            </svg>
+          </li>
+          <li>
+            <h3>Events</h3>
+            <svg>
+              <use href="/images/sprite.svg#event"></use>
+            </svg>
+          </li>
+          <li>
+            <h3>Fees</h3>
+            <svg>
+              <use href="/images/sprite.svg#passes-and-fees"></use>
+            </svg>
+          </li>
+        </ul>
       </section>
     </main>
 
     <footer>
-
+      <p>&copy; 2026 WDD 231 Project Site</p>
     </footer>
   </div>
 
 </body>
+
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="dontclickme">Don't CLick ME!!</button>
+</body>
+<script>
+    function clickMe(){
+        alert("YOU CLICKED THE BUTTON")
+
+        var button= document.getElementById("dontclickme")
+        // button.addEventListener("click", clickMe)
+        button.addEventListener("click", () => {
+            alert("YOU CLICKED THE BUTTON")
+        }
+
+        )
+    }
+</script>
+
+</html>
