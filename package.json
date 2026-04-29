@@ -1,7 +1,7 @@
 {
   "name": "nps",
   "version": "1.0.1",
-  "description": "",
+  "description": "Use this as a starting point to complete the WDD 231 personal activity. We will be pulling data from the National Parks API and building a website for the park of your choice with it.",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -13,6 +13,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vite": "^6.2.3"
-  }
+    "vite": "^6.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karina-d-larson/wdd231.git"
+  },
+  "bugs": {
+    "url": "https://github.com/karina-d-larson/wdd231/issues"
+  },
+  "homepage": "https://github.com/karina-d-larson/wdd231#readme"
 }
