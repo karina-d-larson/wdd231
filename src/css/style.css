@@ -1,32 +1,32 @@
-:root{
+:root {
   --header-footer: #3A5A40;
   --accent-color: #588157;
   --background: #DAD7CD;
-  --transparent-background: rgba(218, 215, 205,.5);
+  --transparent-background: rgba(218, 215, 205, .5);
   --light-accent: #A3B18A;
   --dark-accent: #1D2C24;
-  --light-text:#DAD7CD;
-  --dark-text:#1D2C24;
+  --light-text: #DAD7CD;
+  --dark-text: #1D2C24;
 
 }
 
-*{
+* {
   margin: 0;
 
 }
 
-body{
+body {
   background-color: var(--dark-accent);
 }
 
-#content{
+#content {
   max-width: 1024px;
   background-color: var(--background);
   margin: 0 auto;
   color: var(--dark-text);
 }
 
-header{
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,12 +34,12 @@ header{
   color: var(--light-text);
 }
 
-h1{
-font-size: 3rem;
-padding: 1rem;
+h1 {
+  font-size: 3rem;
+  padding: 1rem;
 }
 
-nav{
+nav {
   font-size: 1.5rem;
   padding: 1rem;
 }
@@ -49,7 +49,8 @@ nav{
 }
 
 #header-menu-options {
-  position: absolute; /* optional if your layout needs it */
+  position: absolute;
+  /* optional if your layout needs it */
   z-index: 10;
   background-color: var(--header-color);
 }
@@ -62,15 +63,16 @@ nav{
 
 #header-menu-options li {
   padding: 0.75rem;
-  cursor: pointer;  border-bottom: 1px solid var(--accent-color);
+  cursor: pointer;
+  border-bottom: 1px solid var(--accent-color);
 }
 
 
-#hero img{
+#hero img {
   width: 100%;
 }
 
-#parkInfo{
+#parkInfo {
   background-color: var(--background);
   opacity: 80%;
   margin-top: -100px;
@@ -84,12 +86,12 @@ nav{
   background-color: var(--accent-color);
 }
 
-#parkName{
+#parkName {
   font-size: 2.25rem;
   padding: .75rem;
 }
 
-#parkInfo div{
+#parkInfo div {
   padding: .5rem;
   border-left: 2px solid var(--dark-accent);
   font-size: 1.15rem;
@@ -106,11 +108,11 @@ nav{
   padding: 0px .1rem;
 }
 
-#parkMenu h3{
+#parkMenu h3 {
   justify-self: center;
 }
 
-#parkMenu li{
+#parkMenu li {
   padding: .25rem;
   justify-content: center;
 }
@@ -171,7 +173,7 @@ nav{
 
 
 
-footer{
+footer {
   display: flex;
   background-color: var(--header-footer);
   color: var(--background);

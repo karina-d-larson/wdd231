@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Week 4</h1>
+    <p>We are learning Json and JavaScript.</p>
+    <div id="studentData">
+        <h3>Student Name</h3>
+        <p>Hometown</p>
+        <p>skills</p>
+    </div>
+</body>
+<script>
+    function getStudent(){
+        fetch("./data/student.json").then(getStudentData).then(displayStudentData)
+    }
+
+    function getStudentData(response){
+        return response.json()
+    }
+
+    function displayStudentData(data){
+        console.log(data)
+    }
+
+    function getStudentCompact(){
+        fetch("./data/student.json")
+        .then(response => response.json())
+        .then(data => console.log(data))
+    }
+
+    async function getStudentAsync() {
+        const response = await fetch("./data/student.json")
+        const data = await response.json()
+        console.log(data)
+    }
+
+    const studentData = 
+
+    // getStudent()
+    // getStudentCompact()
+    getStudentAsync()
+</script>
+</html>
