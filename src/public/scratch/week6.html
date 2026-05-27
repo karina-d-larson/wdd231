@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input, button{
+            font-size: 1.2rem;
+            padding: .5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Favorite Tunes</h1>
+    <p>Store your Favorite Tunes</p>
+    <form action="">
+        <input name="tune">
+        <button type="submit">add Tune</button>
+    </form>
+    <hr>
+    <ul id="favorites_list"></ul>
+</body>
+<script>
+    const parmas = new URLSearchParams(window.location.search)
+    const tune = parmas.get("tune")
+    const listobj = document.getElementById("favorites_list")
+    const favoriteTunes = localStorage.getItem("favorite-tunes") || []
+    if (tune){
+        favoriteTunes.push(tune)
+        localStorage.setItem("favorite-tunes", JSON.stringify(favoriteTunes))
+    }
+    let listItems = favoriteTunes.map(tune => `<li>${tune}</li>`).join("")
+    listobj.innerHTML = listItems
+</script>
+</html>
