@@ -7,7 +7,47 @@
   --dark-accent: #1D2C24;
   --light-text: #DAD7CD;
   --dark-text: #1D2C24;
+  --header-color: #3A5A40;
 
+  --motion-fast: 0.2s;
+  --motion-medium: 0.35s;
+  --motion-ease: ease;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 * {
@@ -39,9 +79,13 @@ h1 {
   padding: 1rem;
 }
 
+main {
+  position: relative;
+}
+
 #choose-park-container {
   display: flex;
-  flex-direction: column;   /* stack button and select */
+  flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
   margin: 0.5rem 0 0.75rem;
@@ -49,7 +93,7 @@ h1 {
 
 #choose-park-btn {
   cursor: pointer;
-  font: inherit;                     /* match site typography */
+  font: inherit;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: white;
@@ -57,10 +101,16 @@ h1 {
   border: 1px solid #1f2f27;
   border-radius: 6px;
   padding: 0.5rem 0.85rem;
+  transition:
+    background-color var(--motion-fast) var(--motion-ease),
+    transform var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-fast) var(--motion-ease);
 }
 
 #choose-park-btn:hover {
   background-color: #2b4035;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
 }
 
 #choose-park-btn:focus-visible {
@@ -72,34 +122,79 @@ h1 {
   min-width: 220px;
   max-width: 100%;
   padding: 0.4rem 0.5rem;
-  font: inherit;                     /* match site typography */
+  font: inherit;
   color: #1f2f27;
   border: 1px solid #9ca59a;
   border-radius: 4px;
   background: #fff;
+  transition:
+    opacity var(--motion-fast) var(--motion-ease),
+    visibility var(--motion-fast) var(--motion-ease),
+    transform var(--motion-fast) var(--motion-ease),
+    box-shadow var(--motion-fast) var(--motion-ease);
 }
 
+#choose-park-select:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+#choose-park-select.is-hidden {
+  display: inline-block !important;
+  visibility: hidden;
+  opacity: 0;
+}
 
 nav {
   font-size: 1.5rem;
   padding: 1rem;
+  position: relative;
+}
+
+#header-menu-trigger {
+  cursor: pointer;
+  transition:
+    color var(--motion-fast) var(--motion-ease),
+    transform var(--motion-fast) var(--motion-ease);
+}
+
+#header-menu-trigger:hover {
+  transform: translateY(-2px);
 }
 
 .is-hidden {
-  display: none;
+  display: none !important;
 }
 
 #header-menu-options {
   position: absolute;
-  /* optional if your layout needs it */
+  right: 1rem;
+  top: 100%;
   z-index: 10;
   background-color: var(--header-color);
+  overflow: hidden;
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    max-height var(--motion-medium) var(--motion-ease),
+    opacity var(--motion-fast) var(--motion-ease),
+    transform var(--motion-medium) var(--motion-ease);
+}
+
+#header-menu-options.is-hidden {
+  display: block !important;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
 }
 
 #header-menu-options ul {
   list-style: none;
   margin: 0;
   padding: 0.5rem;
+  animation: fadeSlideIn var(--motion-medium) var(--motion-ease);
 }
 
 #header-menu-options li {
@@ -138,6 +233,10 @@ nav {
   font-size: 1.15rem;
 }
 
+/* Intentional tech debt: center park menu hidden with CSS, not removed from HTML/JS */
+#parkMenu {
+  display: none;
+}
 
 #parkMenu ul {
   display: flex;
@@ -156,6 +255,13 @@ nav {
 #parkMenu li {
   padding: .25rem;
   justify-content: center;
+  transition:
+    transform var(--motion-fast) var(--motion-ease),
+    background-color var(--motion-fast) var(--motion-ease);
+}
+
+#parkMenu li:hover {
+  transform: translateY(-2px);
 }
 
 #parkMenu ul li svg {
@@ -188,6 +294,68 @@ nav {
   border: 1px solid #ddd;
   border-radius: 0.5rem;
   background: #fff;
+}
+
+#park-info {
+  animation: fadeUp var(--motion-medium) var(--motion-ease) both;
+}
+
+#park-info h2,
+#park-info p,
+#park-info ul,
+#park-info li,
+#park-info span {
+  animation: fadeUp var(--motion-medium) var(--motion-ease) both;
+}
+
+#park-info h2 {
+  animation-delay: 0.05s;
+}
+
+#park-info p:nth-of-type(1) {
+  animation-delay: 0.1s;
+}
+
+#park-info p:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+
+#park-info p:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+#park-info p:nth-of-type(4) {
+  animation-delay: 0.25s;
+}
+
+#park-info p:nth-of-type(5) {
+  animation-delay: 0.3s;
+}
+
+#park-fees {
+  overflow: hidden;
+  max-height: 2000px;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    max-height var(--motion-medium) var(--motion-ease),
+    opacity var(--motion-fast) var(--motion-ease),
+    transform var(--motion-medium) var(--motion-ease),
+    margin var(--motion-medium) var(--motion-ease),
+    padding var(--motion-medium) var(--motion-ease);
+}
+
+#park-fees.is-hidden {
+  display: block !important;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-color: transparent;
 }
 
 #park-info h2,
@@ -231,11 +399,18 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  opacity: 1;
+  transition: opacity var(--motion-medium) var(--motion-ease);
 }
 
-/* Important: this beats #map-modal display:flex */
 #map-modal.is-hidden {
-  display: none;
+  display: flex !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#map-modal:not(.is-hidden) #map-modal-content {
+  animation: popIn var(--motion-medium) var(--motion-ease);
 }
 
 #map-modal-content {
@@ -254,6 +429,12 @@ nav {
 }
 
 #favorites-section {
+  position: absolute;
+  top: 50px;
+  width: min(960px, calc(100% - 2rem));
+  opacity: 0.7;
+  z-index: 5;
+  margin: 0 1rem;
   background-color: var(--header-color);
   color: white;
   padding: 0.5rem 1rem 0.9rem;
@@ -272,8 +453,12 @@ nav {
 }
 
 .favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  list-style: none;
   margin: 0;
-  padding-left: 1rem;
+  padding: 0;
 }
 
 .favorites-list li {
@@ -289,12 +474,6 @@ nav {
   color: inherit;
   text-decoration: underline;
 }
-
-.is-hidden {
-  display: none !important;
-}
-
-
 
 footer {
   display: flex;
