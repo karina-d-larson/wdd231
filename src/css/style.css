@@ -480,5 +480,120 @@ footer {
   display: flex;
   background-color: var(--header-footer);
   color: var(--background);
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+footer a,
+#feedback-modal button,
+.feedback-submit-btn {
+  border: 0;
+  border-radius: 0.5rem;
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid white;
+  margin-top: 1rem;
+}
+
+#footer-feedback-link {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
+  padding: 0.7rem 1.1rem;
+  text-decoration: none;
+  background: var(--accent-color);
+  color: #fff;
+  font-weight: 700;
+}
+
+#footer-feedback-link:hover,
+#footer-feedback-link:focus-visible {
+  background: var(--dark-accent);
+}
+
+#feedback-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+#feedback-modal-content {
+  position: relative;
+  width: min(100%, 34rem);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: var(--background);
+  color: var(--dark-text);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+#feedback-modal-close,
+#feedback-thanks-close {
+  padding: 0.6rem 0.9rem;
+  background: var(--header-footer);
+  color: var(--light-text);
+  font-weight: 700;
+}
+
+#feedback-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+#feedback-form,
+#feedback-thanks {
+  display: grid;
+  gap: 1rem;
+}
+
+#feedback-form label {
+  font-weight: 700;
+}
+
+#feedback-form input,
+#feedback-form textarea {
+  width: 90%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #bbb;
+  border-radius: 0.6rem;
+  font: inherit;
+}
+
+#feedback-form textarea {
+  resize: vertical;
+  min-height: 10rem;
+}
+
+.feedback-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--header-footer);
+  color: var(--light-text);
+  font-weight: 700;
+}
+
+.feedback-submit-btn:hover,
+.feedback-submit-btn:focus-visible,
+#feedback-modal-close:hover,
+#feedback-modal-close:focus-visible,
+#feedback-thanks-close:hover,
+#feedback-thanks-close:focus-visible {
+  background: var(--dark-accent);
+}
+
+.form-error {
+  min-height: 1.25rem;
+  color: #b00020;
+  font-weight: 700;
+  margin: 0;
 }
